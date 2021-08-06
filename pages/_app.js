@@ -18,6 +18,7 @@ export default function App({ Component, pageProps }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Fira+Sans+Condensed:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet" />
+        <link rel="shortcut icon" href="https://github.com/victordantasdev.png" />
 
         <title>Portfolio | Victor Dantas</title>
       </Head>

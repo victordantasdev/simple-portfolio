@@ -33,8 +33,6 @@ export default function Cabecalho({ toggleTheme }) {
         </StyledLink>
       </WrapperCabecalho.LeftSide>
 
-      {/* ============= */}
-
       <WrapperCabecalho.RightSide>
         <Button onClick={toggleTheme}>
           {colorTheme.title === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
