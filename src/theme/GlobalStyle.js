@@ -1,0 +1,34 @@
+import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
+  ${normalize}
+  
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: ${({ theme: { theme } }) => theme.fontFamily};
+    background-color: ${({ theme: { colorTheme } }) => colorTheme.background.color};
+    color: ${({ theme: { colorTheme } }) => colorTheme.background.contrastText};
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      padding: 1px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 2.5px;
+      background: linear-gradient(45deg, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1));
+    }
+  }
+`;
+
+export default GlobalStyle;

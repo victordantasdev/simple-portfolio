@@ -1,28 +1,31 @@
-import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import React, { useState } from 'react';
+import Head from 'next/head';
 import PropTypes from 'prop-types';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
-
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-};
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from '../src/theme/GlobalStyle';
+import theme, { colors } from '../src/theme';
 
 export default function App({ Component, pageProps }) {
+  const [colorTheme, setColorTheme] = useState(colors.modes.dark);
+
+  const toggleTheme = () => {
+    setColorTheme(colorTheme.title === 'light' ? colors.modes.dark : colors.modes.light);
+  };
+
   return (
     <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Fira+Sans+Condensed:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet" />
+
+        <title>Portfolio | Victor Dantas</title>
+      </Head>
+
+      <ThemeProvider theme={{ theme, colorTheme }}>
+        <GlobalStyle />
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Component {...pageProps} />
+        <Component toggleTheme={toggleTheme} {...pageProps} />
       </ThemeProvider>
     </>
   );
