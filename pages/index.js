@@ -12,7 +12,8 @@ export default function Home({ toggleTheme }) {
     SHOWDATA: 'SHOWDATA',
   };
 
-  const [screenState, setScreenState] = useState(screenStates.LOADING);
+  // const [screenState, setScreenState] = useState(screenStates.LOADING);
+  const [screenState, setScreenState] = useState(screenStates.SHOWDATA);
 
   useEffect(() => {
     setTimeout(() => {

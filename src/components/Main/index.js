@@ -10,6 +10,7 @@ import {
   CardDescription,
 } from './styles/CardStyles';
 import StyledLink from '../common/StyledLink';
+import Contact from '../Contact';
 
 const cardsInfos = [
   {
@@ -47,33 +48,37 @@ const cardsInfos = [
 
 export default function Main() {
   return (
-    <WrapperProjetos>
-      <SectionTitle>
-        Meus projetos
-      </SectionTitle>
+    <>
+      <WrapperProjetos>
+        <SectionTitle>
+          Meus projetos
+        </SectionTitle>
 
-      <WrapperCards>
-        {cardsInfos.map((cardInfo) => (
-          <Card key={cardInfo.id} isDestaque={cardInfo.isDestaque}>
+        <WrapperCards>
+          {cardsInfos.map((cardInfo) => (
+            <Card key={cardInfo.id} isDestaque={cardInfo.isDestaque}>
 
-            <CardImage imageURL={cardInfo.image} isDestaque={cardInfo.isDestaque}>
-              {cardInfo.isDestaque && <CardImage.Badge>Destaque</CardImage.Badge>}
-            </CardImage>
+              <CardImage imageURL={cardInfo.image} isDestaque={cardInfo.isDestaque}>
+                {cardInfo.isDestaque && <CardImage.Badge>Destaque</CardImage.Badge>}
+              </CardImage>
 
-            <CardText isDestaque={cardInfo.isDestaque}>
-              <StyledLink href={cardInfo.title.replace(' ', '_')}>
-                <CardTitle>{cardInfo.title}</CardTitle>
-              </StyledLink>
+              <CardText isDestaque={cardInfo.isDestaque}>
+                <StyledLink href={cardInfo.title.replace(' ', '_')}>
+                  <CardTitle>{cardInfo.title}</CardTitle>
+                </StyledLink>
 
-              <CardDescription isDestaque={cardInfo.isDestaque}>
-                {cardInfo.text}
-              </CardDescription>
-            </CardText>
+                <CardDescription isDestaque={cardInfo.isDestaque}>
+                  {cardInfo.text}
+                </CardDescription>
+              </CardText>
 
-          </Card>
-        ))}
-      </WrapperCards>
+            </Card>
+          ))}
+        </WrapperCards>
 
-    </WrapperProjetos>
+      </WrapperProjetos>
+
+      <Contact />
+    </>
   );
 }
