@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
+import breakpointsMedia from '../../theme/utils/breakpointsMedia';
 
 const ModalWrapper = styled.div`
   display: flex;
@@ -39,9 +40,18 @@ const Form = styled.form`
   align-items: center;
   position: relative;
   justify-content: center;
-  width: 900px;
   height: 675px;
   background-color: ${({ theme: { colorTheme } }) => colorTheme.borders.color};
+
+  ${breakpointsMedia({
+    xs: css`
+      width: 100vw;
+    `,
+
+    md: css`
+      width: 900px;
+    `,
+  })}
 `;
 
 function Modal({ isOpen, onClose, setModalState }) {

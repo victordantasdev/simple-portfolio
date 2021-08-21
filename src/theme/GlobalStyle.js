@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    transition: all 0.2s linear;
     font-family: ${({ theme: { theme } }) => theme.fontFamily};
     background-color: ${({ theme: { colorTheme } }) => colorTheme.background.color};
     color: ${({ theme: { colorTheme } }) => colorTheme.background.contrastText};
