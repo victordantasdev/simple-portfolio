@@ -24,7 +24,7 @@ const ContactButton = styled.div`
 `;
 
 export default function Contact() {
-  const [isModalOpen, setModalState] = useState(true);
+  const [isModalOpen, setModalState] = useState(false);
 
   return (
     <>

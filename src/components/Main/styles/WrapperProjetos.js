@@ -12,11 +12,11 @@ const WrapperProjetos = styled.div`
   
   ${breakpointsMedia({
     xs: css`
-      margin-top: 32px;
+      padding-top: 32px;
     `,
 
     md: css`
-      margin-top: 64px;
+      padding-top: 64px;
     `,
   })}
 `;
