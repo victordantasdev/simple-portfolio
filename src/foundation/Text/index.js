@@ -78,6 +78,26 @@ export const TextStyleVariantsMap = {
     font-size: ${({ theme: { theme } }) => theme.typographyVariants.badge.fontSize};
     font-weight: ${({ theme: { theme } }) => theme.typographyVariants.badge.fontWeight};
   `,
+
+  formTitle: css`
+    font-size: ${({ theme: { theme } }) => theme.typographyVariants.formTitle.fontSize};
+    font-weight: ${({ theme: { theme } }) => theme.typographyVariants.formTitle.fontWeight};
+  `,
+
+  formTitleXS: css`
+    font-size: ${({ theme: { theme } }) => theme.typographyVariants.formTitleXS.fontSize};
+    font-weight: ${({ theme: { theme } }) => theme.typographyVariants.formTitleXS.fontWeight};
+  `,
+
+  formLabel: css`
+    font-size: ${({ theme: { theme } }) => theme.typographyVariants.formLabel.fontSize};
+    font-weight: ${({ theme: { theme } }) => theme.typographyVariants.formLabel.fontWeight};
+  `,
+
+  formLabelXS: css`
+    font-size: ${({ theme: { theme } }) => theme.typographyVariants.formLabelXS.fontSize};
+    font-weight: ${({ theme: { theme } }) => theme.typographyVariants.formLabelXS.fontWeight};
+  `,
 };
 
 const TextBase = styled.span`
