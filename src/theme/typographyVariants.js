@@ -73,6 +73,26 @@ const typographyVariants = {
     fontSize: '24px',
     fontWeight: '300', // Light
   },
+
+  formTitle: {
+    fontSize: '36px',
+    fontWeight: '400', // Light
+  },
+
+  formTitleXS: {
+    fontSize: '24px',
+    fontWeight: '400', // Light
+  },
+
+  formLabel: {
+    fontSize: '34px',
+    fontWeight: '400', // Light
+  },
+
+  formLabelXS: {
+    fontSize: '18px',
+    fontWeight: '400', // Light
+  },
 };
 
 export default typographyVariants;

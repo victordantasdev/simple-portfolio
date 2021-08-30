@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
-import breakpointsMedia from '../../theme/utils/breakpointsMedia';
+import Form from '../Form';
 
 const ModalWrapper = styled.div`
   display: flex;
@@ -32,26 +32,6 @@ const ModalWrapper = styled.div`
       pointer-events: none;
     `;
   }}
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  justify-content: center;
-  height: 675px;
-  background-color: ${({ theme: { colorTheme } }) => colorTheme.borders.color};
-
-  ${breakpointsMedia({
-    xs: css`
-      width: 100vw;
-    `,
-
-    md: css`
-      width: 900px;
-    `,
-  })}
 `;
 
 function Modal({ isOpen, onClose, setModalState }) {
@@ -84,22 +64,7 @@ function Modal({ isOpen, onClose, setModalState }) {
           justifyContent: 'flex-end',
         }}
       >
-        <Form data-modal-safe-area="true">
-          <button
-            type="button"
-            onClick={() => { setModalState(false); }}
-            style={{
-              position: 'absolute', top: '30px', right: '30px',
-            }}
-          >
-            Fechar
-          </button>
-          <h2>Envie sua mensagem</h2>
-          <input type="text" placeholder="Seu nome" required />
-          <input type="email" placeholder="Seu Email" required />
-          <textarea rows="5" cols="22" defaultValue="Sua Mensagem" required />
-          <input type="button" value="Enviar >" />
-        </Form>
+        <Form setModalState={setModalState} />
       </motion.div>
     </ModalWrapper>
   );

@@ -10,7 +10,7 @@ const WrapperContact = styled.div`
   margin-bottom: 52px;
 `;
 
-const ContactButton = styled.div`
+const ContactButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

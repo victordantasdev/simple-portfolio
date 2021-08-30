@@ -12,13 +12,13 @@ export default function Home({ toggleTheme }) {
     SHOWDATA: 'SHOWDATA',
   };
 
-  // const [screenState, setScreenState] = useState(screenStates.LOADING);
-  const [screenState, setScreenState] = useState(screenStates.SHOWDATA);
+  const [screenState, setScreenState] = useState(screenStates.LOADING);
+  // const [screenState, setScreenState] = useState(screenStates.SHOWDATA);
 
   useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.SHOWDATA);
-    }, 2.4 * 1000);
+    }, 2.2 * 1000);
   }, [screenStates.SHOWDATA]);
 
   return (
