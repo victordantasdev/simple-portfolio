@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-import Brightness7Icon from '@material-ui/icons/Brightness7';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
+import Switch from 'react-switch';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import Button from '../common/Button';
 import StyledLink from '../common/StyledLink';
 import WrapperCabecalho from './styles/WrapperCabecalho';
+import { Moon, Sun } from '../Icons/SwichIcons';
 
 const links = [
   {
@@ -34,9 +33,14 @@ export default function Cabecalho({ toggleTheme }) {
       </WrapperCabecalho.LeftSide>
 
       <WrapperCabecalho.RightSide>
-        <Button onClick={toggleTheme}>
-          {colorTheme.title === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-        </Button>
+        <Switch
+          onChange={toggleTheme}
+          checked={colorTheme.title === 'dark'}
+          checkedIcon={<Sun />}
+          uncheckedIcon={<Moon />}
+          onColor={colorTheme.secondary.color}
+          offColor={colorTheme.secondary.color}
+        />
         {links.map((link) => (
           <li key={link.text}>
             <StyledLink
