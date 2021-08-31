@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import StyledLink from '../common/StyledLink';
 import WrapperCabecalho from './styles/WrapperCabecalho';
-import { Moon, Sun } from '../Icons/SwichIcons';
+import { Moon, Sun } from '../../assets/Icons/SwichIcons';
 
 const links = [
   {

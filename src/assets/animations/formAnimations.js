@@ -1,9 +1,9 @@
 import React from 'react';
 import { Lottie } from '@crello/react-lottie';
 import styled from 'styled-components';
-import loading from '../../../../public/animations/form-loading.json';
-import success from '../../../../public/animations/success.json';
-import error from '../../../../public/animations/error.json';
+import loading from './lottieAnimations/loading.json';
+import success from './lottieAnimations/success.json';
+import error from './lottieAnimations/error.json';
 
 const AnimationContainer = styled.div`
   display: flex;

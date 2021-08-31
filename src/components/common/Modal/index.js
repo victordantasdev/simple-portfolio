@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
-import Form from '../Form';
+import Form from '../../Form';
 
 const ModalWrapper = styled.div`
   display: flex;
