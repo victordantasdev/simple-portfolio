@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import breakpointsMedia from '../../theme/utils/breakpointsMedia';
 import Text from '../../foundation/Text';
-import Done from '../Done';
+import { Loading, Success, Error } from './animations';
 
 const WrapperForm = styled.form`
   display: flex;
@@ -66,35 +66,70 @@ const ContactButton = styled.button`
   )};
 `;
 
+const formStates = {
+  DEFAULT: 'DEFAULT',
+  LOADING: 'LOADING',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+};
+
 export default function Form({ setModalState }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [submited, setSubmited] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState(formStates.DEFAULT);
+  const [formInfo, setFormInfo] = useState({
+    nome: '',
+    email: '',
+    mensagem: '',
+  });
+
+  const handleChange = (e) => {
+    const fieldName = e.target.getAttribute('name');
+    setFormInfo({
+      ...formInfo,
+      [fieldName]: e.target.value,
+    });
+  };
 
   return (
     <WrapperForm
       data-modal-safe-area="true"
       onSubmit={(e) => {
         e.preventDefault();
-
-        const data = {
-          name,
-          email,
-          message,
+        const formDTO = {
+          name: formInfo.nome,
+          email: formInfo.email,
+          message: formInfo.mensagem,
         };
 
-        setTimeout(() => {
-          setSubmited(false);
-          setName('');
-          setEmail('');
-          setMessage('');
-        }, 1.2 * 1000);
+        setSubmissionStatus(formStates.LOADING);
+        const url = 'https://contact-form-api-jamstack.herokuapp.com/message';
+        fetch(url, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(formDTO),
+        })
+          .then((res) => {
+            if (res.ok) {
+              return res.json();
+            }
 
-        setSubmited(true);
-
-        // eslint-disable-next-line no-console
-        console.log(data);
+            throw new Error('Não foi possível enviar a mensagem agora :(');
+          })
+          .then(() => {
+            setSubmissionStatus(formStates.SUCCESS);
+            setTimeout(() => {
+              setSubmissionStatus(formStates.DEFAULT);
+            }, 1.2 * 1000);
+          })
+          .catch((error) => {
+            setSubmissionStatus(formStates.ERROR);
+            setTimeout(() => {
+              setSubmissionStatus(formStates.DEFAULT);
+            }, 1.2 * 1000);
+            // eslint-disable-next-line no-console
+            console.log(error);
+          });
       }}
     >
       <ContactButton
@@ -103,6 +138,7 @@ export default function Form({ setModalState }) {
           position: 'absolute', top: '30px', right: '30px',
         }}
         icon="close"
+        as="div"
       />
       <Text
         tag="h2"
@@ -118,8 +154,9 @@ export default function Form({ setModalState }) {
       <Input
         type="text"
         id="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        name="nome"
+        value={formInfo.nome}
+        onChange={handleChange}
         required
       />
 
@@ -129,8 +166,9 @@ export default function Form({ setModalState }) {
       <Input
         type="email"
         id="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        name="email"
+        value={formInfo.email}
+        onChange={handleChange}
         required
       />
 
@@ -139,8 +177,10 @@ export default function Form({ setModalState }) {
       </Label>
       <TextArea
         id="message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        name="mensagem"
+        value={formInfo.mensagem}
+        onChange={handleChange}
+        required
       />
 
       <div
@@ -151,7 +191,7 @@ export default function Form({ setModalState }) {
           margin: '32px 0',
         }}
       >
-        {!submited && (
+        {submissionStatus === formStates.DEFAULT && (
           <>
             <Text
               tag="span"
@@ -167,7 +207,9 @@ export default function Form({ setModalState }) {
           </>
         )}
 
-        {submited && <Done />}
+        {submissionStatus === formStates.SUCCESS && <Success />}
+        {submissionStatus === formStates.LOADING && <Loading />}
+        {submissionStatus === formStates.ERROR && <Error />}
       </div>
     </WrapperForm>
   );
