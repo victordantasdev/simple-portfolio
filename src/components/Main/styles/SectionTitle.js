@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import { TextStyleVariantsMap } from '../../../foundation/Text';
+import { TextStyleVariantsMap } from '../../foundation/Text';
 
 const SectionTitle = styled.h2`
   margin: 0;

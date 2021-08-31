@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Loading from '../src/components/Loading';
+import Loading from '../src/assets/Loading';
 import Cabecalho from '../src/components/Cabecalho';
 import Capa from '../src/components/Capa';
 import Main from '../src/components/Main';

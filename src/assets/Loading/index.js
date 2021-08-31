@@ -1,7 +1,7 @@
 import React from 'react';
 import { Lottie } from '@crello/react-lottie';
 import styled from 'styled-components';
-import animationData from '../../../public/animations/loading.json';
+import animationData from '../animations/lottieAnimations/loading.json';
 
 const AnimationContainer = styled.div`
   display: flex;

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import breakpointsMedia from '../../theme/utils/breakpointsMedia';
-import Text from '../../foundation/Text';
-import { Loading, Success, Error } from './animations';
+import Text from '../foundation/Text';
+import { Loading, Success, Error } from '../../assets/animations/formAnimations';
 
 const WrapperForm = styled.form`
   display: flex;
