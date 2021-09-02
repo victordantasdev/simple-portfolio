@@ -19,7 +19,7 @@ const links = [
 ];
 
 export default function Cabecalho({ toggleTheme }) {
-  const { colorTheme } = useContext(ThemeContext);
+  const theme = useContext(ThemeContext);
 
   return (
     <WrapperCabecalho>
@@ -35,11 +35,11 @@ export default function Cabecalho({ toggleTheme }) {
       <WrapperCabecalho.RightSide>
         <Switch
           onChange={toggleTheme}
-          checked={colorTheme.title === 'dark'}
+          checked={theme.title === 'dark'}
           checkedIcon={<Sun />}
           uncheckedIcon={<Moon />}
-          onColor={colorTheme.secondary.color}
-          offColor={colorTheme.secondary.color}
+          onColor={theme.secondary.color}
+          offColor={theme.secondary.color}
         />
         {links.map((link) => (
           <li key={link.text}>

@@ -24,8 +24,8 @@ const ContactButton = styled.button`
   background-image: url('/svgs/plus.svg');
   background-repeat: no-repeat;
   background-position: center;
-  filter: ${({ theme: { colorTheme } }) => (
-    colorTheme.title === 'dark'
+  filter: ${({ theme }) => (
+    theme.title === 'dark'
       ? 'invert(1)'
       : 'invert(0)'
   )};

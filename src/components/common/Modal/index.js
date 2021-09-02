@@ -10,6 +10,7 @@ const ModalWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
   position: fixed;
   top: 0;
   left: 0;

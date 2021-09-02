@@ -8,8 +8,7 @@ const WrapperRodape = styled.nav`
   align-items: center;
   flex-direction: row;
   justify-content: center;
-  background-color: ${({ theme: { colorTheme } }) => colorTheme.primary.color};
-  /* border-top: 4px solid ${({ theme: { colorTheme } }) => colorTheme.secondary.color}; */
+  background-color: ${({ theme }) => theme.primary.color};
 
   ${breakpointsMedia({
     xs: css`
@@ -27,7 +26,7 @@ export const RodapeIcons = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  background-color: ${({ theme: { colorTheme } }) => colorTheme.secondary.color};
+  background-color: ${({ theme }) => theme.secondary.color};
 `;
 
 export const Icon = styled.div`
@@ -41,11 +40,11 @@ WrapperRodape.LeftSide = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  background-color: ${({ theme: { colorTheme } }) => colorTheme.secondary.color};
+  background-color: ${({ theme }) => theme.secondary.color};
   padding: 0 19px;
 
   a {
-    color: ${({ theme: { colorTheme } }) => colorTheme.secondary.contrastText};
+    color: ${({ theme }) => theme.secondary.contrastText};
     text-decoration: none;
     background: 
       linear-gradient(to right, transparent, transparent),
@@ -92,7 +91,7 @@ WrapperRodape.RightSide = styled.div`
   }
 
   a {
-    color: ${({ theme: { colorTheme } }) => colorTheme.primary.contrastText};
+    color: ${({ theme }) => theme.primary.contrastText};
     text-decoration: none;
     background: 
       linear-gradient(to right, transparent, transparent),

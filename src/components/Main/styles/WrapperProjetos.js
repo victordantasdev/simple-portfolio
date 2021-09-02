@@ -7,7 +7,7 @@ const WrapperProjetos = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  background-color: ${({ theme: { colorTheme } }) => colorTheme.background.color};
+  background-color: ${({ theme }) => theme.background.color};
   
   
   ${breakpointsMedia({
