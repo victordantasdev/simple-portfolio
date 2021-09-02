@@ -34,7 +34,7 @@ export const WrapperCards = styled.div`
 export const Card = styled.div`
   display: flex;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.06);
-  border: 1px solid ${({ theme: { colorTheme } }) => colorTheme.secondary.color};
+  border: 1px solid ${({ theme }) => theme.secondary.color};
 
   ${breakpointsMedia({
     xs: css`
@@ -73,9 +73,9 @@ CardImage.Badge = styled.span`
   position: relative;
   top: 18px;
   left: 12px;
-  background: ${({ theme: { colorTheme } }) => colorTheme.background.color};
-  color: ${({ theme: { colorTheme } }) => colorTheme.background.contrastText};
-  border: 1px solid ${({ theme: { colorTheme } }) => colorTheme.background.contrastText};
+  background: ${({ theme }) => theme.background.color};
+  color: ${({ theme }) => theme.background.contrastText};
+  border: 1px solid ${({ theme }) => theme.background.contrastText};
   padding: 6px;
 
   ${breakpointsMedia({

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import breakpointsMedia from '../../theme/utils/breakpointsMedia';
-import Text from '../foundation/Text';
 import { Loading, Success, Error } from '../../assets/animations/formAnimations';
 
 const WrapperForm = styled.form`
@@ -13,7 +12,8 @@ const WrapperForm = styled.form`
   justify-content: space-around;
   padding: 0 45px;
   border-radius: 10px 10px 0 0;
-  background-color: ${({ theme: { colorTheme } }) => colorTheme.borders.color};
+  box-shadow: -1px -1px 50px rgba(0, 0, 0, 0.2);
+  background-color: ${({ theme }) => theme.borders.color};
 
   ${breakpointsMedia({
     xs: css`
@@ -21,28 +21,69 @@ const WrapperForm = styled.form`
     `,
 
     md: css`
-      width: 900px;
+      width: 768px;
     `,
   })};
+`;
+
+const FormTitle = styled.h2`
+  margin-bottom: 0;
+  
+  ${breakpointsMedia({
+    xs: css`
+      font-size: 24px;
+      font-weight: 400;
+    `,
+    md: css`
+      font-size: 36px;
+      font-weight: 400;
+    `,
+  })}
 `;
 
 const Label = styled.label`
   align-self: flex-start;
   margin: 32px 0 12px 0;
+
+  ${breakpointsMedia({
+    xs: css`
+      font-size: 18px;
+      font-weight: 400;
+    `,
+    md: css`
+      font-size: 34px;
+      font-weight: 400;
+    `,
+  })}
 `;
 
 const Input = styled.input`
   width: 100%;
   height: 48px;
   font-size: 40px;
-  border: 2px solid ${({ theme: { colorTheme } }) => colorTheme.secondary.color};
+  border: 2px solid ${({ theme }) => theme.secondary.color};
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
   height: 120px;
   font-size: 40px;
-  border: 2px solid ${({ theme: { colorTheme } }) => colorTheme.secondary.color};
+  border: 2px solid ${({ theme }) => theme.secondary.color};
+`;
+
+const SendText = styled.span`
+  margin-right: 12px;
+
+  ${breakpointsMedia({
+    xs: css`
+      font-size: 18px;
+      font-weight: 400;
+    `,
+    md: css`
+      font-size: 34px;
+      font-weight: 400;
+    `,
+  })}
 `;
 
 const ContactButton = styled.button`
@@ -59,8 +100,8 @@ const ContactButton = styled.button`
   background-image: url(${(props) => `/svgs/${props.icon}.svg`});
   background-repeat: no-repeat;
   background-position: center;
-  filter: ${({ theme: { colorTheme } }) => (
-    colorTheme.title === 'dark'
+  filter: ${({ theme }) => (
+    theme.title === 'dark'
       ? 'invert(1)'
       : 'invert(0)'
   )};
@@ -140,17 +181,9 @@ export default function Form({ setModalState }) {
         icon="close"
         as="div"
       />
-      <Text
-        tag="h2"
-        variant="formTitle"
-        style={{ marginBottom: '0' }}
-      >
-        Envie sua mensagem
-      </Text>
+      <FormTitle>Envie sua mensagem</FormTitle>
 
-      <Label htmlFor="name">
-        <Text tag="span" variant="formLabel">Seu nome:</Text>
-      </Label>
+      <Label htmlFor="name">Seu nome:</Label>
       <Input
         type="text"
         id="name"
@@ -160,9 +193,7 @@ export default function Form({ setModalState }) {
         required
       />
 
-      <Label htmlFor="email">
-        <Text tag="span" variant="formLabel">Seu email:</Text>
-      </Label>
+      <Label htmlFor="email">Seu email:</Label>
       <Input
         type="email"
         id="email"
@@ -172,9 +203,7 @@ export default function Form({ setModalState }) {
         required
       />
 
-      <Label htmlFor="message">
-        <Text tag="span" variant="formLabel">Sua mensagem:</Text>
-      </Label>
+      <Label htmlFor="message">Sua mensagem:</Label>
       <TextArea
         id="message"
         name="mensagem"
@@ -193,13 +222,7 @@ export default function Form({ setModalState }) {
       >
         {submissionStatus === formStates.DEFAULT && (
           <>
-            <Text
-              tag="span"
-              variant="formLabel"
-              style={{ marginRight: '12px' }}
-            >
-              Enviar
-            </Text>
+            <SendText>Enviar</SendText>
             <ContactButton
               type="submit"
               icon="arrow"

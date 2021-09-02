@@ -8,8 +8,8 @@ const WrapperCabecalho = styled.nav`
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
-  background-color: ${({ theme: { colorTheme } }) => colorTheme.primary.color};
-  border-top: 4px solid ${({ theme: { colorTheme } }) => colorTheme.secondary.color};
+  background-color: ${({ theme }) => theme.primary.color};
+  border-top: 4px solid ${({ theme }) => theme.secondary.color};
 
   ${breakpointsMedia({
     xs: css`
@@ -26,7 +26,7 @@ WrapperCabecalho.LeftSide = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  background-color: ${({ theme: { colorTheme } }) => colorTheme.secondary.color};
+  background-color: ${({ theme }) => theme.secondary.color};
   padding: 0 19px;
 
   ${breakpointsMedia({

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledLink = styled.a`
-  color: ${({ theme: { colorTheme } }) => colorTheme.primary.contrastText};
+  color: ${({ theme }) => theme.primary.contrastText};
   text-decoration: none;
   background: 
     linear-gradient(to right, transparent, transparent),

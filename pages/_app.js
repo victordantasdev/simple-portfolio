@@ -3,13 +3,13 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../src/theme/GlobalStyle';
-import theme, { colors } from '../src/theme';
+import { dark, light } from '../src/theme/colorThemes';
 
 export default function App({ Component, pageProps }) {
-  const [colorTheme, setColorTheme] = useState(colors.modes.dark);
+  const [colorTheme, setColorTheme] = useState(dark);
 
   const toggleTheme = () => {
-    setColorTheme(colorTheme.title === 'light' ? colors.modes.dark : colors.modes.light);
+    setColorTheme(colorTheme.title === 'light' ? dark : light);
   };
 
   return (
@@ -23,9 +23,8 @@ export default function App({ Component, pageProps }) {
         <title>Portfolio | Victor Dantas</title>
       </Head>
 
-      <ThemeProvider theme={{ theme, colorTheme }}>
+      <ThemeProvider theme={colorTheme}>
         <GlobalStyle />
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component toggleTheme={toggleTheme} {...pageProps} />
       </ThemeProvider>
     </>
