@@ -1,84 +1,45 @@
+/* eslint-disable no-useless-return */
 import React from 'react';
+import PropTypes from 'prop-types';
+import LikeButton from '../common/LikeButton';
 import WrapperProjetos from './styles/WrapperProjetos';
 import SectionTitle from './styles/SectionTitle';
-import {
-  Card,
-  CardText,
-  CardTitle,
-  CardImage,
-  WrapperCards,
-  CardDescription,
-} from './styles/CardStyles';
-import StyledLink from '../common/StyledLink';
+// import Link from '../common/Link';
 import Contact from '../Contact';
+import {
+  Card, CardImage, Description, Title, UserInfo, UserName, UserPhoto, WrapperCards,
+} from './styles/CardStyles';
 
-const cardsInfos = [
-  {
-    id: 1,
-    title: 'Projeto Report',
-    image: 'images/CardImage_01.png',
-    text: '',
-    isDestaque: false,
-  },
-
-  {
-    id: 2,
-    title: 'Projeto Report',
-    image: 'images/CardImage_02.png',
-    text: '',
-    isDestaque: false,
-  },
-
-  {
-    id: 3,
-    title: 'Projeto Report',
-    image: 'images/CardImage_01.png',
-    text: '',
-    isDestaque: false,
-  },
-
-  {
-    id: 4,
-    title: 'Projeto Report',
-    image: 'images/CardImage_02.png',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie rhoncus vestibulum. Aenean blandit velit.',
-    isDestaque: true,
-  },
-];
-
-export default function Main() {
+export default function Main({ postsData }) {
   return (
     <>
       <WrapperProjetos>
-        <SectionTitle>
-          Meus projetos
-        </SectionTitle>
-
+        <SectionTitle>Meus Projetos</SectionTitle>
         <WrapperCards>
-          {cardsInfos.map((cardInfo) => (
-            <Card key={cardInfo.id} isDestaque={cardInfo.isDestaque}>
+          {postsData[1].map((item, index) => (
+            <Card>
+              <Title>
+                <UserInfo>
+                  <UserPhoto src="https://github.com/victordantasdev.png" alt="" />
+                  <UserName>victordantasdev</UserName>
+                </UserInfo>
 
-              <CardImage imageURL={cardInfo.image} isDestaque={cardInfo.isDestaque}>
-                {cardInfo.isDestaque && <CardImage.Badge>Destaque</CardImage.Badge>}
-              </CardImage>
-
-              <CardText isDestaque={cardInfo.isDestaque}>
-                <StyledLink href={cardInfo.title.replace(' ', '_')}>
-                  <CardTitle>{cardInfo.title}</CardTitle>
-                </StyledLink>
-
-                <CardDescription isDestaque={cardInfo.isDestaque}>
-                  {cardInfo.text}
-                </CardDescription>
-              </CardText>
-
+                <Description>
+                  {item.repo}
+                </Description>
+              </Title>
+              <CardImage src={postsData[0][index]} alt="" />
+              <LikeButton />
             </Card>
           ))}
         </WrapperCards>
-
+        <Contact />
       </WrapperProjetos>
-
-      <Contact />
     </>
   );
 }
+
+Main.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  postsData: PropTypes.array.isRequired,
+};
