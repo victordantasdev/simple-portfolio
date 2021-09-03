@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import Switch from 'react-switch';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import StyledLink from '../common/StyledLink';
 import WrapperCabecalho from './styles/WrapperCabecalho';
 import { Moon, Sun } from '../../assets/Icons/SwichIcons';
+import Link from '../common/Link';
 
 const links = [
   {
     text: 'Sobre mim',
-    url: '/about',
+    url: '/sobre',
   },
 
   {
@@ -24,12 +24,12 @@ export default function Cabecalho({ toggleTheme }) {
   return (
     <WrapperCabecalho>
       <WrapperCabecalho.LeftSide>
-        <StyledLink
+        <Link
           href="/"
           style={{ color: '#fff' }}
         >
           {'<Me />'}
-        </StyledLink>
+        </Link>
       </WrapperCabecalho.LeftSide>
 
       <WrapperCabecalho.RightSide>
@@ -43,12 +43,12 @@ export default function Cabecalho({ toggleTheme }) {
         />
         {links.map((link) => (
           <li key={link.text}>
-            <StyledLink
+            <Link
               href={link.url}
               style={{ marginLeft: '38px' }}
             >
               {link.text}
-            </StyledLink>
+            </Link>
           </li>
         ))}
       </WrapperCabecalho.RightSide>
