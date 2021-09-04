@@ -1,10 +1,10 @@
 /* eslint-disable no-useless-return */
 import React from 'react';
+import NextLink from 'next/link';
 import PropTypes from 'prop-types';
 import LikeButton from '../common/LikeButton';
 import WrapperProjetos from './styles/WrapperProjetos';
 import SectionTitle from './styles/SectionTitle';
-// import Link from '../common/Link';
 import Contact from '../Contact';
 import {
   Card, CardImage, Description, Title, UserInfo, UserName, UserPhoto, WrapperCards,
@@ -18,17 +18,21 @@ export default function Main({ postsData }) {
         <WrapperCards>
           {postsData[1].map((item, index) => (
             <Card>
-              <Title>
-                <UserInfo>
-                  <UserPhoto src="https://github.com/victordantasdev.png" alt="" />
-                  <UserName>victordantasdev</UserName>
-                </UserInfo>
+              <NextLink href={`projetos/${item.repo}`} passHref>
+                <span>
+                  <Title>
+                    <UserInfo>
+                      <UserPhoto src="https://github.com/victordantasdev.png" alt="" />
+                      <UserName>victordantasdev</UserName>
+                    </UserInfo>
 
-                <Description>
-                  {item.repo}
-                </Description>
-              </Title>
-              <CardImage src={postsData[0][index]} alt="" />
+                    <Description>
+                      {item.repo}
+                    </Description>
+                  </Title>
+                  <CardImage src={postsData[0][index]} alt="" />
+                </span>
+              </NextLink>
               <LikeButton />
             </Card>
           ))}

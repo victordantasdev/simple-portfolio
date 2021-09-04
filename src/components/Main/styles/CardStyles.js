@@ -1,11 +1,20 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 export const WrapperCards = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 32px 32px 0 32px;
+  ${breakpointsMedia({
+    xs: css`
+      padding-top: 32px;
+    `,
+
+    md: css`
+      padding: 32px 32px 0 32px;
+    `,
+  })}
 `;
 
 export const Description = styled.div`
@@ -43,7 +52,7 @@ export const Card = styled.article`
   transition: box-shadow 0.2s ease-in-out;
   
   &:hover {
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.2);
   }
 
   &:hover ${Description} {
@@ -78,7 +87,7 @@ export const UserName = styled.div`
 `;
 
 export const CardImage = styled.img`
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   border-radius: 5%;
   padding: 0 16px 0 16px;
