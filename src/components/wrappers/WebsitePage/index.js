@@ -42,7 +42,7 @@ export default function WebsitePageWrapper({
           {configProps.needsCover && <Capa />}
           {menuProps.display && <Cabecalho toggleTheme={toggleTheme} />}
           {children}
-          <Rodape />
+          {menuProps.display && <Rodape />}
         </>
       )}
     </>
