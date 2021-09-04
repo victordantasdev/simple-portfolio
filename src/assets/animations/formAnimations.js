@@ -6,25 +6,42 @@ import success from './lottieAnimations/success.json';
 import error from './lottieAnimations/error.json';
 
 const AnimationContainer = styled.div`
+  --size: 32px;
+  width: var(--size);
+  height: var(--size);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  font-size: 33px;
+  background-color: transparent;
+  border: 0;
   padding: 0;
+  cursor: pointer;
+  outline: 0;
+  border-radius: 100%;
+  margin: 16px 0 16px 0;
+  transition: transform 0.5s ease-in-out;
+
+  .animation{
+    pointer-events: none;
+  }
 `;
 
 export function Loading() {
   return (
     <AnimationContainer>
-      <Lottie
-        className="lottie-container basic"
-        config={{
-          animationData: loading,
-          loop: true,
-          autoplay: true,
-        }}
-      />
+      <div className="animation">
+        <Lottie
+          className="lottie-container basic"
+          width={100}
+          height={100}
+          config={{
+            animationData: loading,
+            loop: true,
+            autoplay: true,
+          }}
+        />
+      </div>
     </AnimationContainer>
   );
 }
@@ -32,14 +49,18 @@ export function Loading() {
 export function Success() {
   return (
     <AnimationContainer>
-      <Lottie
-        className="lottie-container basic"
-        config={{
-          animationData: success,
-          loop: true,
-          autoplay: true,
-        }}
-      />
+      <div className="animation">
+        <Lottie
+          className="lottie-container basic"
+          width={200}
+          height={200}
+          config={{
+            animationData: success,
+            loop: true,
+            autoplay: true,
+          }}
+        />
+      </div>
     </AnimationContainer>
   );
 }
@@ -47,14 +68,18 @@ export function Success() {
 export function Error() {
   return (
     <AnimationContainer>
-      <Lottie
-        className="lottie-container basic"
-        config={{
-          animationData: error,
-          loop: true,
-          autoplay: true,
-        }}
-      />
+      <div className="animation">
+        <Lottie
+          className="lottie-container basic"
+          width={200}
+          height={200}
+          config={{
+            animationData: error,
+            loop: true,
+            autoplay: true,
+          }}
+        />
+      </div>
     </AnimationContainer>
   );
 }

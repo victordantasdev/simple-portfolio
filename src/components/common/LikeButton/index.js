@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Lottie from 'react-lottie';
+import { Lottie } from '@crello/react-lottie';
 import styled from 'styled-components';
 import likeAnimation from '../../../assets/animations/lottieAnimations/twitter-heart.json';
 
@@ -32,19 +32,9 @@ const LikeButtonWrapper = styled.button`
 export default function LikeButton() {
   const [isLiked, setLikeState] = useState(false);
   const [animationState, setAnimationState] = useState({
-    isStopped: true,
-    isPaused: false,
+    playingState: 'playing',
     direction: -1,
   });
-
-  const defaultOptions = {
-    loop: false,
-    autoplay: false,
-    animationData: likeAnimation,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidyMid slice',
-    },
-  };
 
   return (
     <LikeButtonWrapper
@@ -58,18 +48,21 @@ export default function LikeButton() {
           direction: animationState.direction === normalAnimation
             ? reverseAnimation
             : normalAnimation,
-          isStopped: false,
         });
       }}
     >
       <div className="animation">
         <Lottie
-          options={defaultOptions}
+          className="lottie-container basic"
           width={200}
           height={200}
+          playingState={animationState.playingState}
           direction={animationState.direction}
-          isStopped={animationState.isStopped}
-          isPaused={animationState.isPaused}
+          config={{
+            animationData: likeAnimation,
+            loop: false,
+            autoplay: false,
+          }}
         />
       </div>
       {/* <span>{isLiked ? 1 : 0}</span> */}
