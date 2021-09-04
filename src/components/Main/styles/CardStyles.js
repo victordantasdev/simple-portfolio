@@ -17,10 +17,11 @@ export const WrapperCards = styled.div`
   })}
 `;
 
-export const Description = styled.div`
+export const ProjectName = styled.span`
   font-size: 16px;
   font-weight: bold;
   margin-top: 16px;
+  overflow-wrap: break-word;
 
   color: ${({ theme }) => theme.primary.contrastText};
   text-decoration: none;
@@ -55,7 +56,7 @@ export const Card = styled.article`
     box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.2);
   }
 
-  &:hover ${Description} {
+  &:hover ${ProjectName} {
     background-size: 0 2px, 100% 2px;
   }
 `;

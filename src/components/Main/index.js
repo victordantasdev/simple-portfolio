@@ -7,7 +7,7 @@ import WrapperProjetos from './styles/WrapperProjetos';
 import SectionTitle from './styles/SectionTitle';
 import Contact from '../Contact';
 import {
-  Card, CardImage, Description, Title, UserInfo, UserName, UserPhoto, WrapperCards,
+  Card, CardImage, ProjectName, Title, UserInfo, UserName, UserPhoto, WrapperCards,
 } from './styles/CardStyles';
 
 export default function Main({ postsData }) {
@@ -17,21 +17,21 @@ export default function Main({ postsData }) {
         <SectionTitle>Meus Projetos</SectionTitle>
         <WrapperCards>
           {postsData[1].map((item, index) => (
-            <Card>
+            <Card key={item.repo}>
               <NextLink href={`projetos/${item.repo}`} passHref>
-                <span>
+                <div>
                   <Title>
                     <UserInfo>
                       <UserPhoto src="https://github.com/victordantasdev.png" alt="" />
                       <UserName>victordantasdev</UserName>
                     </UserInfo>
 
-                    <Description>
+                    <ProjectName>
                       {item.repo}
-                    </Description>
+                    </ProjectName>
                   </Title>
                   <CardImage src={postsData[0][index]} alt="" />
-                </span>
+                </div>
               </NextLink>
               <LikeButton />
             </Card>
