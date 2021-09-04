@@ -60,7 +60,7 @@ const Label = styled.label`
 const Input = styled.input`
   width: 100%;
   height: 48px;
-  font-size: 40px;
+  font-size: 2em;
   border: 2px solid ${({ theme }) => theme.secondary.color};
 `;
 
