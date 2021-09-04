@@ -18,6 +18,11 @@ const LikeButtonWrapper = styled.button`
   outline: 0;
   border-radius: 100%;
   margin: 16px 0 16px 0;
+  transition: transform 0.5s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.4);
+  }
 
   .animation{
     pointer-events: none;
