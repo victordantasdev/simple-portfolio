@@ -12,10 +12,10 @@ const links = [
     url: '/sobre',
   },
 
-  {
-    text: 'Contato',
-    url: '/contato',
-  },
+  // {
+  //   text: 'Contato',
+  //   url: '/contato',
+  // },
 ];
 
 export default function Cabecalho({ toggleTheme }) {
